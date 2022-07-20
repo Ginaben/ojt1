@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.ApiMapper">
+
+    <select id="selectItems" resultType="String">
+        select row_to_json(result) as item_json from(
+        select
+        <foreach collection="columnListToGet" item="columnName" separator=",">
+            ${columnName}
+        </foreach>
+        from ${requestTableInfo.schemaTableName}
+        where
+        <foreach collection="pkList" item="map" separator="OR">
+            <foreach collection="map" item="columnValue" index="columnName" separator="and" open="(" close=")">
+                ${columnName}=#{columnValue}
+            </foreach>
+        </foreach>
+        )  as result
+    </select>
+
+
+</mapper>
