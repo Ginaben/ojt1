@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.ApiMapper">
+<mapper namespace="com.example.demo.mapper.ApiMapper">
 
     <select id="selectItems" resultType="String">
         select row_to_json(result) as item_json from(

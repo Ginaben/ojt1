@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 

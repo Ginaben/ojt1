@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.api.dynamodb.mapper.GpMapper">
+
+    <select id="selectCatalogPage" resultType="String">
+        select cp_catalog_page_sk, cp_catalog_page_id
+        from ${tableName}
+        where cp_catalog_page_sk = ${id}
+    </select>
+
+</mapper>
